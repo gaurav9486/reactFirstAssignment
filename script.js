@@ -46,6 +46,13 @@ $.get(
       $(userState).text("State: " + dataList[id].address.state);
       $(userZip).text("ZIP: " + dataList[id].address.zip);
     })
+    
+    $("#search-box").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("tbody tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
   }
 );
 
